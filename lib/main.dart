@@ -1,17 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_appcenter_bundle/flutter_appcenter_bundle.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  await AppCenter.startAsync(
+    appSecretAndroid: '18cf44fd-b2c2-4085-9900-e6f89284aad2',
+    appSecretIOS: '',
+    enableDistribute: true,
+  ).then((value) => {
+  });
+
+  await AppCenter.configureDistributeDebugAsync(enabled: false);
+  await AppCenter.checkForUpdateAsync().then((value) => {
+  });
+
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+
+class _MyAppState extends State<MyApp> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Next',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,7 +47,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'vvvvvvv'),
+      home: const MyHomePage(title: '2222'),
     );
   }
 }
