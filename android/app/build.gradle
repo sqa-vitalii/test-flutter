@@ -55,6 +55,13 @@ android {
         versionName "2.0.0"
     }
 
+    flavorDimensions "distribute"
+    productFlavors {
+        appCenter {
+            dimension "distribute"
+        }
+    }
+
     signingConfigs {
         release {
             storeFile rootProject.file("app/android.keystore")
