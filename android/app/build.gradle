@@ -26,19 +26,15 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion flutter.compileSdkVersion
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
+    compileSdkVersion 31
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        checkReleaseBuilds false
     }
 
     defaultConfig {
@@ -48,6 +44,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName flutterVersionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -63,6 +60,7 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
 }
 
 flutter {
@@ -70,11 +68,5 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    def appCenterSdkVersion = '4.3.1'
-    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
-
-    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
-
-    implementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
