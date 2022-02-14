@@ -3,7 +3,7 @@ import 'package:flutter_appcenter_bundle/flutter_appcenter_bundle.dart';
 
 void main() async {
   await AppCenter.startAsync(
-    appSecretAndroid: '18cf44fd-b2c2-4085-9900-e6f89284aad2',
+    appSecretAndroid: 'd2a5652f-79d7-48e2-9add-3b2814c1a123',
     appSecretIOS: '',
     enableDistribute: true,
   ).then((value) => {
